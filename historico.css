@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+header{
+
+    text-align:center;
+
+    padding:35px;
+
+    position:relative;
+
+}
+
+header h1{
+
+    color:#22c55e;
+
+    margin-bottom:10px;
+
+}
+
+header p{
+
+    color:#94a3b8;
+
+}
+
+.voltar{
+
+    position:absolute;
+
+    left:30px;
+
+    top:35px;
+
+    color:#22c55e;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+#historico{
+
+    width:90%;
+
+    max-width:900px;
+
+    margin:30px auto;
+
+}
+
+.card{
+
+    background:#1e293b;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+
+}
+
+.card h2{
+
+    color:#22c55e;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#cbd5e1;
+
+    margin:8px 0;
+
+}
