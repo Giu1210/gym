@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medidas Corporais</title>
+
+    <link rel="stylesheet" href="css/medidas.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>📏 Medidas Corporais</h1>
+
+    <a href="index.html" class="voltar">← Voltar</a>
+
+</header>
+
+<main class="container">
+
+    <!-- Nova Avaliação -->
+
+    <div class="card">
+
+        <h2>➕ Nova Avaliação</h2>
+
+        <input type="date" id="data">
+
+        <input type="number" id="peso" placeholder="⚖️ Peso (kg)">
+
+        <input type="number" id="cintura" placeholder="📏 Cintura (cm)">
+
+        <input type="number" id="abdomen" placeholder="🫃 Abdômen (cm)">
+
+        <input type="number" id="quadril" placeholder="🍑 Quadril (cm)">
+
+        <input type="number" id="gluteo" placeholder="🍑 Glúteo (cm)">
+
+        <input type="number" id="coxa" placeholder="🦵 Coxa (cm)">
+
+        <input type="number" id="panturrilha" placeholder="🦵 Panturrilha (cm)">
+
+        <input type="number" id="braco" placeholder="💪 Braço (cm)">
+
+        <button onclick="salvarMedidas()">
+
+            💾 Salvar Avaliação
+
+        </button>
+
+    </div>
+
+    <!-- Última Avaliação -->
+
+    <div class="card">
+
+        <h2>📋 Última Avaliação</h2>
+
+        <div id="ultimaAvaliacao">
+
+        </div>
+
+    </div>
+
+    <!-- Evolução -->
+
+    <div class="card">
+
+        <h2>📈 Evolução</h2>
+
+        <div id="evolucao">
+
+        </div>
+
+    </div>
+
+    <!-- Histórico -->
+
+    <div class="card">
+
+        <h2>📚 Histórico</h2>
+
+        <div id="historicoMedidas">
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script src="js/storage.js"></script>
+
+<script src="js/medidas.js"></script>
+
+</body>
+
+</html>

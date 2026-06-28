@@ -1,47 +1,255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gym Tracker</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="manifest" href="manifest.json">
 
-<meta name="theme-color" content="#22c55e">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Tracker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="manifest" href="manifest.json">
+
+<link rel="icon" href="icons/icon-192.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-<header class="header">
-    <h1>🏋️ Gym Tracker</h1>
-    <p>Bem-vinda, Giulia 👋</p>
+<header>
+
+    <div class="header-texto">
+
+        <h1>💪 Gym Tracker</h1>
+
+        <p id="saudacao"></p>
+
+    </div>
+
 </header>
 
-<main class="cards">
+<main class="container">
 
-    <a href="treinos.html" class="card">
-        <span>💪</span>
-        <h2>Treinos</h2>
-        <p>Veja e acompanhe seus treinos.</p>
-    </a>
+    <!-- Hoje -->
 
-    <a href="historico.html" class="card">
-        <span>📈</span>
-        <h2>Histórico</h2>
-        <p>Acompanhe sua evolução.</p>
-    </a>
+    <section class="card">
 
-    <a href="configuracoes.html" class="card">
-        <span>⚙️</span>
-        <h2>Configurações</h2>
-        <p>Personalize o aplicativo.</p>
-    </a>
+        <h2>📅 Hoje</h2>
+
+        <p id="dataAtual"></p>
+
+    </section>
+
+    <!-- Boas-vindas -->
+
+    <section class="card">
+
+        <h2>👋 Bem-vinda!</h2>
+
+        <p id="fraseMotivacao"></p>
+
+    </section>
+
+    <!-- Estatísticas -->
+
+    <section class="card">
+
+        <h2>📊 Estatísticas</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <span class="numero" id="sequencia">0</span>
+
+                <span class="texto">🔥 Sequência</span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="numero" id="totalTreinos">0</span>
+
+                <span class="texto">🏋️ Treinos</span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="numero" id="tempoTreinado">0h</span>
+
+                <span class="texto">⏱️ Tempo</span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="numero" id="pesoAtual">--</span>
+
+                <span class="texto">⚖️ Peso</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Resumo Geral -->
+
+    <section class="card">
+
+        <h2>🔥 Resumo Geral</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <span class="numero" id="diasTreinados">0</span>
+
+                <span class="texto">📅 Dias</span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="numero" id="volumeTotal">0 kg</span>
+
+                <span class="texto">📦 Volume</span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="numero" id="tempoTotal">0h</span>
+
+                <span class="texto">⏱️ Total</span>
+
+            </div>
+
+            <div class="stat">
+
+                <span class="numero" id="recordesTotal">0</span>
+
+                <span class="texto">🏆 Recordes</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Últimas medidas -->
+
+    <section class="card">
+
+        <h2>📏 Últimas Medidas</h2>
+
+        <div class="medidas">
+
+            <p>⚖️ Peso:
+                <strong id="ultimoPeso">--</strong>
+            </p>
+
+            <p>📏 Cintura:
+                <strong id="ultimaCintura">--</strong>
+            </p>
+
+            <p>🍑 Glúteo:
+                <strong id="ultimoGluteo">--</strong>
+            </p>
+
+            <p>🦵 Coxa:
+                <strong id="ultimaCoxa">--</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Último treino -->
+
+    <section class="card">
+
+        <h2>🏋️ Último Treino</h2>
+
+        <p id="ultimoTreino">
+
+            Nenhum treino realizado.
+
+        </p>
+
+    </section>
+
+    
+
+    <!-- Acesso rápido -->
+
+    <section class="card">
+
+        <h2>🚀 Acesso Rápido</h2>
+
+        <div class="atalhos">
+
+            <a href="treinos.html" class="atalho">
+
+                💪
+
+                <span>Treinos</span>
+
+            </a>
+
+            <a href="historico.html" class="atalho">
+
+                📈
+
+                <span>Histórico</span>
+
+            </a>
+
+            <a href="medidas.html" class="atalho">
+
+                📏
+
+                <span>Medidas</span>
+
+            </a>
+
+            <a href="recordes.html" class="atalho">
+
+                🏆
+
+                <span>Recordes</span>
+
+            </a>
+
+            <a href="configuracoes.html" class="atalho">
+
+                ⚙️
+
+                <span>Configurações</span>
+
+            </a>
+
+        </div>
+
+    </section>
 
 </main>
 
-<script src="script.js"></script>
+
+
+<script src="js/storage.js"></script>
+
+<script src="js/script.js"></script>
 
 </body>
+
 </html>
