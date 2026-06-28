@@ -1,8 +1,13 @@
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
     font-family:'Poppins',sans-serif;
+
 }
 
 body{
@@ -15,11 +20,9 @@ body{
 
 header{
 
+    padding:30px;
+
     text-align:center;
-
-    padding:35px;
-
-    position:relative;
 
 }
 
@@ -27,19 +30,13 @@ header h1{
 
     color:#22c55e;
 
+    margin-bottom:10px;
+
 }
 
-.voltar{
+header p{
 
-    position:absolute;
-
-    left:30px;
-
-    top:35px;
-
-    text-decoration:none;
-
-    color:#22c55e;
+    color:#cbd5e1;
 
 }
 
@@ -49,7 +46,7 @@ header h1{
 
     max-width:700px;
 
-    margin:30px auto;
+    margin:20px auto;
 
 }
 
@@ -57,59 +54,81 @@ header h1{
 
     background:#1e293b;
 
-    padding:25px;
+    padding:20px;
 
     border-radius:18px;
 
     margin-bottom:20px;
 
+    box-shadow:0 0 20px rgba(0,0,0,.25);
+
 }
 
 .card h2{
 
-    margin-bottom:20px;
-
     color:#22c55e;
-
-}
-
-input{
-
-    width:100%;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:10px;
 
     margin-bottom:15px;
 
+}
+
+.barra{
+
+    width:100%;
+
+    height:12px;
+
     background:#334155;
 
-    color:white;
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin:15px 0;
 
 }
 
-button{
+.preenchimento{
+
+    width:0%;
+
+    height:100%;
 
     background:#22c55e;
 
-    color:white;
+}
 
-    border:none;
+.atalhos{
 
-    padding:12px 20px;
+    display:grid;
 
-    border-radius:10px;
+    grid-template-columns:1fr 1fr;
 
-    cursor:pointer;
+    gap:15px;
 
 }
 
-button:hover{
+.atalhos a{
 
-    opacity:.9;
+    text-decoration:none;
+
+    background:#1e293b;
+
+    color:white;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.atalhos a:hover{
+
+    background:#22c55e;
 
 }/* ==========================
    MENU INFERIOR

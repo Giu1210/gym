@@ -1,11 +1,12 @@
-/* ===========================
+/* ==========================
    RESET
-=========================== */
+========================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -13,45 +14,64 @@ html{
 }
 
 body{
-    font-family:'Poppins',sans-serif;
     background:#0f172a;
     color:#fff;
     min-height:100vh;
 }
 
-/* ===========================
+/* ==========================
    HEADER
-=========================== */
+========================== */
 
-.header{
+header{
+
+    background:#1e293b;
+
+    padding:30px 20px;
+
     text-align:center;
-    padding:50px 20px 30px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
+
 }
 
-.header h1{
-    font-size:2.4rem;
+header h1{
+
     color:#22c55e;
-    margin-bottom:10px;
+
+    font-size:34px;
+
+    margin-bottom:8px;
+
 }
 
-.header p{
-    color:#94a3b8;
-    font-size:1rem;
+header p{
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
 }
 
-/* ===========================
-   MENU
-=========================== */
+/* ==========================
+   CONTAINER
+========================== */
 
-.cards{
-    width:90%;
+.container{
+
+    width:92%;
+
     max-width:1000px;
-    margin:30px auto;
 
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+    margin:25px auto;
+
+    padding-bottom:120px;
+
 }
+
+/* ==========================
+   CARDS
+========================== */
 
 .card{
 
@@ -59,229 +79,342 @@ body{
 
     border-radius:20px;
 
-    padding:30px;
+    padding:22px;
 
-    text-decoration:none;
+    margin-bottom:20px;
 
-    color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,.30);
 
     transition:.3s;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-
-    border:1px solid transparent;
 
 }
 
 .card:hover{
 
-    transform:translateY(-8px);
-
-    border:1px solid #22c55e;
-
-    box-shadow:0 0 25px rgba(34,197,94,.35);
-
-}
-
-.card span{
-
-    font-size:3rem;
+    transform:translateY(-5px);
 
 }
 
 .card h2{
 
-    margin:20px 0 10px;
+    color:#22c55e;
+
+    margin-bottom:18px;
+
+    font-size:22px;
+
+}
+
+/* ==========================
+   ESTATÍSTICAS
+========================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.stat{
+
+    background:#334155;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.numero{
+
+    display:block;
+
+    font-size:30px;
+
+    font-weight:bold;
 
     color:#22c55e;
 
 }
 
-.card p{
+.texto{
+
+    display:block;
+
+    margin-top:8px;
 
     color:#cbd5e1;
 
-    line-height:1.5;
+}
+
+/* ==========================
+   MEDIDAS
+========================== */
+
+.medidas{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
 
 }
 
-/* ===========================
-   BOTÕES
-=========================== */
+.medidas p{
 
-button{
+    background:#334155;
 
-    background:#22c55e;
-
-    color:white;
-
-    border:none;
+    padding:15px;
 
     border-radius:12px;
 
-    padding:12px 20px;
+}
 
-    cursor:pointer;
+.medidas strong{
+
+    color:#22c55e;
+
+    float:right;
+
+}/* ==========================
+   RECORDES
+========================== */
+
+#recordesHome{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+.recorde{
+
+    background:#334155;
+
+    border-radius:15px;
+
+    padding:18px;
 
     transition:.3s;
 
 }
 
-button:hover{
+.recorde:hover{
 
-    background:#16a34a;
+    transform:translateY(-3px);
 
 }
 
-/* ===========================
-   INPUTS
-=========================== */
+.recorde h3{
 
-input,
-select{
+    color:#22c55e;
 
-    width:100%;
+    margin-bottom:8px;
 
-    padding:14px;
+    font-size:18px;
 
-    margin-top:10px;
+}
 
-    border:none;
+.recorde p{
 
-    border-radius:12px;
-
-    background:#334155;
-
-    color:white;
-
-    outline:none;
+    color:#e2e8f0;
 
     font-size:15px;
 
 }
 
-input::placeholder{
+/* ==========================
+   ATALHOS
+========================== */
 
-    color:#94a3b8;
+.atalhos{
 
-}
+    display:grid;
 
-/* ===========================
-   CARDS DOS TREINOS
-=========================== */
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
 
-.treino{
-
-    background:#1e293b;
-
-    margin:20px auto;
-
-    width:90%;
-
-    max-width:900px;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    gap:18px;
 
 }
 
-.treino h2{
-
-    color:#22c55e;
-
-    margin-bottom:20px;
-
-}
-
-.exercicio{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:15px;
+.atalho{
 
     background:#334155;
 
-    border-radius:12px;
+    border-radius:18px;
 
-    margin-bottom:12px;
+    padding:22px;
 
-}
+    text-decoration:none;
 
-.info h3{
+    color:#fff;
 
-    font-size:16px;
-
-}
-
-.info p{
-
-    color:#cbd5e1;
-
-    margin-top:5px;
-
-}
-
-/* ===========================
-   CHECKBOX
-=========================== */
-
-input[type="checkbox"]{
-
-    width:22px;
-
-    height:22px;
-
-    accent-color:#22c55e;
-
-}
-
-/* ===========================
-   FOOTER
-=========================== */
-
-footer{
-
-    text-align:center;
-
-    padding:30px;
-
-    color:#64748b;
-
-}
-
-/* ===========================
-   RESPONSIVO
-=========================== */
-
-@media(max-width:700px){
-
-.header h1{
-
-    font-size:2rem;
-
-}
-
-.cards{
-
-    grid-template-columns:1fr;
-
-}
-
-.exercicio{
+    display:flex;
 
     flex-direction:column;
 
-    align-items:flex-start;
+    align-items:center;
 
-    gap:15px;
+    justify-content:center;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.20);
 
 }
+
+.atalho:hover{
+
+    background:#22c55e;
+
+    transform:translateY(-5px);
+
+}
+
+.atalho{
+
+    font-size:34px;
+
+}
+
+.atalho span{
+
+    margin-top:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   MENU INFERIOR
+========================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:78px;
+
+    background:#1e293b;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    box-shadow:0 -6px 18px rgba(0,0,0,.35);
+
+    z-index:999;
+
+}
+
+.bottom-nav a{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    color:#cbd5e1;
+
+    transition:.3s;
+
+}
+
+.bottom-nav a:hover{
+
+    color:#22c55e;
+
+}
+
+.bottom-nav a.ativo{
+
+    color:#22c55e;
+
+}
+
+.bottom-nav a{
+
+    font-size:26px;
+
+}
+
+.bottom-nav span{
+
+    margin-top:5px;
+
+    font-size:12px;
+
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:768px){
+
+    .stats{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .medidas{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .atalhos{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    header h1{
+
+        font-size:28px;
+
+    }
+
+    .stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .atalhos{
+
+        grid-template-columns:1fr;
+
+    }
 
 }

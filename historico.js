@@ -1,43 +1,175 @@
-const container = document.getElementById("historico");
+// ===============================
+// GYM TRACKER
+// HISTÓRICO
+// ===============================
 
-const cargas = carregarDados("cargas") || {};
+// Container onde os treinos serão exibidos
+const listaHistorico = document.getElementById("listaHistorico");
 
-const exercicios = Object.keys(cargas);
+// Carrega histórico salvo
+let historico = carregarDados("historico") || [];
 
-if(exercicios.length === 0){
+// Exibe os treinos
+mostrarHistorico();
 
-    container.innerHTML = `
+// ===============================
+// MOSTRAR HISTÓRICO
+// ===============================
 
-        <div class="card">
+function mostrarHistorico(){
 
-            <h2>Nenhum treino registrado</h2>
+    listaHistorico.innerHTML = "";
 
-            <p>Quando você salvar uma carga, ela aparecerá aqui.</p>
+    if(historico.length === 0){
+
+        listaHistorico.innerHTML = `
+
+        <div class="vazio">
+
+            <h2>📭 Nenhum treino encontrado</h2>
+
+            <br>
+
+            <p>
+                Quando você concluir um treino,
+                ele aparecerá aqui.
+            </p>
 
         </div>
 
-    `;
-
-}else{
-
-    exercicios.forEach(exercicio=>{
-
-        const card=document.createElement("div");
-
-        card.className="card";
-
-        card.innerHTML=`
-
-            <h2>${exercicio}</h2>
-
-            <p><strong>Última carga:</strong> ${cargas[exercicio]} kg</p>
-
-            <p>${new Date().toLocaleDateString('pt-BR')}</p>
-
         `;
 
-        container.appendChild(card);
+        return;
+
+    }
+
+    historico
+    .slice()
+    .reverse()
+    .forEach((treino,index)=>{
+
+        listaHistorico.innerHTML += `
+
+        <div class="treino">
+
+            <h2>${treino.treino}</h2>
+
+            <p>
+
+                <strong>📅 Data:</strong>
+
+                ${treino.data}
+
+            </p>
+
+            <p>
+
+                <strong>🏋️ Exercícios:</strong>
+
+                ${treino.exercicios || "--"}
+
+            </p>
+
+            <p>
+
+                <strong>⏱️ Tempo:</strong>
+
+                ${treino.tempo || "--"}
+
+            </p>
+
+            <p>
+
+                <strong>📦 Volume:</strong>
+
+                ${treino.volume || "--"}
+
+            </p>
+
+            <button
+                class="detalhes"
+                onclick="verDetalhes(${historico.length-1-index})">
+
+                👁 Ver detalhes
+
+            </button>
+
+            <button
+                class="detalhes"
+                style="margin-top:10px;background:#ef4444"
+                onclick="excluirTreino(${historico.length-1-index})">
+
+                🗑 Excluir treino
+
+            </button>
+
+        </div>
+
+        `;
 
     });
 
 }
+
+// ===============================
+// DETALHES
+// ===============================
+
+function verDetalhes(indice){
+
+    const treino = historico[indice];
+
+    alert(
+
+`💪 ${treino.treino}
+
+📅 ${treino.data}
+
+🏋️ Exercícios:
+${treino.exercicios || "Não informado"}
+
+⏱️ Tempo:
+${treino.tempo || "--"}
+
+📦 Volume:
+${treino.volume || "--"}`
+
+    );
+
+}
+
+// ===============================
+// EXCLUIR TREINO
+// ===============================
+
+function excluirTreino(indice){
+
+    const confirmar = confirm(
+
+        "Deseja realmente excluir este treino?"
+
+    );
+
+    if(!confirmar) return;
+
+    historico.splice(indice,1);
+
+    salvarDados("historico",historico);
+
+    mostrarHistorico();
+
+}
+
+// ===============================
+// ESTATÍSTICAS
+// ===============================
+
+function atualizarEstatisticas(){
+
+    const total = historico.length;
+
+    console.log("Total de treinos:",total);
+
+}
+
+atualizarEstatisticas();

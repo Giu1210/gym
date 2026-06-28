@@ -1,63 +1,230 @@
-// ================================
-// Gym Tracker
-// Página Inicial
-// ================================
+// =====================================
+// GYM TRACKER
+// HOME
+// =====================================
 
-// Nome do usuário
-const nomeUsuario = "Giulia";
+// ---------- DATA ----------
 
-// Atualiza a saudação (caso exista)
-const saudacao = document.querySelector(".header p");
+const hoje = new Date();
 
-if (saudacao) {
-    const hora = new Date().getHours();
+const opcoes = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+};
 
-    let mensagem = "";
+document.getElementById("dataAtual").textContent =
+    hoje.toLocaleDateString("pt-BR", opcoes);
 
-    if (hora < 12) {
-        mensagem = "Bom dia";
-    } else if (hora < 18) {
-        mensagem = "Boa tarde";
-    } else {
-        mensagem = "Boa noite";
-    }
+// ---------- SAUDAÇÃO ----------
 
-    saudacao.textContent = `${mensagem}, ${nomeUsuario}! 👋`;
+const hora = hoje.getHours();
+
+let saudacao = "";
+
+if(hora < 12){
+
+    saudacao = "☀️ Bom dia!";
+
+}else if(hora < 18){
+
+    saudacao = "🌤 Boa tarde!";
+
+}else{
+
+    saudacao = "🌙 Boa noite!";
+
 }
 
-// Animação dos cards ao carregar
-const cards = document.querySelectorAll(".card");
+document.getElementById("saudacao").textContent = saudacao;
 
-cards.forEach((card, index) => {
+// ---------- FRASE MOTIVACIONAL ----------
 
-    card.style.opacity = "0";
-    card.style.transform = "translateY(30px)";
+const frases = [
 
-    setTimeout(() => {
+"Cada treino te aproxima do seu objetivo. 💪",
 
-        card.style.transition = "0.5s";
-        card.style.opacity = "1";
-        card.style.transform = "translateY(0)";
+"A disciplina vence a motivação. 🔥",
 
-    }, index * 150);
+"Você é mais forte do que imagina. 🏋️",
+
+"Não desista. Resultados levam tempo. ⏳",
+
+"Hoje melhor que ontem. 🚀",
+
+"Pequenos passos geram grandes resultados. ⭐",
+
+"Seu único concorrente é você mesmo. 💚"
+
+];
+
+const frase =
+frases[Math.floor(Math.random()*frases.length)];
+
+document.getElementById("fraseMotivacao").textContent = frase;
+
+document.getElementById("motivacao").textContent = frase;
+
+// ---------- HISTÓRICO ----------
+
+const historico =
+carregarDados("historico") || [];
+
+document.getElementById("totalTreinos").textContent =
+historico.length;
+
+document.getElementById("diasTreinados").textContent =
+historico.length;
+
+// ---------- ÚLTIMO TREINO ----------
+
+const ultimoTreino =
+document.getElementById("ultimoTreino");
+
+if(historico.length){
+
+    const ultimo =
+    historico[historico.length-1];
+
+    ultimoTreino.innerHTML = `
+
+<strong>${ultimo.treino}</strong>
+
+<br>
+
+📅 ${ultimo.data}
+
+${ultimo.hora ? "<br>🕒 "+ultimo.hora : ""}
+
+`;
+
+}else{
+
+    ultimoTreino.textContent =
+    "Nenhum treino realizado.";
+
+}
+
+// ---------- TEMPO TOTAL ----------
+
+let minutos = 0;
+
+historico.forEach(item=>{
+
+    if(item.tempo){
+
+        const numeros =
+        item.tempo.match(/\d+/g);
+
+        if(numeros){
+
+            if(numeros.length===2){
+
+                minutos +=
+                Number(numeros[0])*60;
+
+                minutos +=
+                Number(numeros[1]);
+
+            }
+
+        }
+
+    }
 
 });
 
-// Verifica se existe histórico salvo
-const historico = JSON.parse(localStorage.getItem("historico")) || [];
+document.getElementById("tempoTreinado").textContent =
+`${Math.floor(minutos/60)}h`;
 
-console.log("Histórico:", historico);
+document.getElementById("tempoTotal").textContent =
+`${Math.floor(minutos/60)}h`;
 
-// Verifica se existe tema salvo
-const tema = localStorage.getItem("tema");
+// ---------- VOLUME ----------
 
-if (tema === "claro") {
-    document.body.classList.add("tema-claro");
+let volume = 0;
+
+historico.forEach(item=>{
+
+    if(item.volume){
+
+        volume += parseInt(item.volume);
+
+    }
+
+});
+
+document.getElementById("volumeTotal").textContent =
+volume.toLocaleString("pt-BR")+" kg";
+
+// ---------- MEDIDAS ----------
+
+const medidas =
+carregarDados("medidas") || [];
+
+if(medidas.length){
+
+    const ultima =
+    medidas[medidas.length-1];
+
+    document.getElementById("pesoAtual").textContent =
+    ultima.peso+" kg";
+
+    document.getElementById("ultimoPeso").textContent =
+    ultima.peso+" kg";
+
+    document.getElementById("ultimaCintura").textContent =
+    ultima.cintura+" cm";
+
+    document.getElementById("ultimoGluteo").textContent =
+    ultima.gluteo+" cm";
+
+    document.getElementById("ultimaCoxa").textContent =
+    ultima.coxa+" cm";
+
 }
 
-// Mensagem de boas-vindas no console
-console.log("🏋️ Gym Tracker iniciado com sucesso!");if ("serviceWorker" in navigator) {
+// ---------- RECORDES ----------
 
-    navigator.serviceWorker.register("service-worker.js");
+const recordes =
+carregarDados("recordes") || [];
+
+document.getElementById("recordesTotal").textContent =
+recordes.length;
+
+const recordesHome =
+document.getElementById("recordesHome");
+
+if(recordes.length){
+
+    recordesHome.innerHTML="";
+
+    recordes
+    .slice(0,5)
+    .forEach(r=>{
+
+        recordesHome.innerHTML += `
+
+<p>
+
+🏆 <strong>${r.exercicio}</strong>
+
+<br>
+
+${r.carga} kg
+
+</p>
+
+<hr>
+
+`;
+
+    });
 
 }
+
+// ---------- SEQUÊNCIA ----------
+
+document.getElementById("sequencia").textContent =
+historico.length;

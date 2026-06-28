@@ -47,9 +47,9 @@ header h1{
 
     text-decoration:none;
 
-    color:white;
-
     background:#22c55e;
+
+    color:white;
 
     padding:10px 18px;
 
@@ -74,10 +74,10 @@ header h1{
 }
 
 /* ==========================
-   CARD DO HISTÓRICO
+   CARD RECORDE
 ========================== */
 
-.treino{
+.recorde{
 
     background:#1e293b;
 
@@ -93,77 +93,51 @@ header h1{
 
 }
 
-.treino:hover{
+.recorde:hover{
 
     transform:translateY(-4px);
 
 }
 
-.treino h2{
+.recorde h2{
 
     color:#22c55e;
 
-    margin-bottom:15px;
+    margin-bottom:18px;
 
 }
 
-.treino p{
+.recorde p{
 
-    margin:8px 0;
+    background:#334155;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
 
     color:#e2e8f0;
 
 }
 
-.treino strong{
+.recorde strong{
 
     color:#22c55e;
 
 }
 
 /* ==========================
-   BOTÃO DETALHES
-========================== */
-
-.detalhes{
-
-    margin-top:15px;
-
-    background:#22c55e;
-
-    color:white;
-
-    border:none;
-
-    border-radius:10px;
-
-    padding:12px;
-
-    cursor:pointer;
-
-    width:100%;
-
-    transition:.3s;
-
-}
-
-.detalhes:hover{
-
-    opacity:.9;
-
-}
-
-/* ==========================
-   SEM HISTÓRICO
+   SEM RECORDES
 ========================== */
 
 .vazio{
 
     background:#1e293b;
 
-    border-radius:20px;
-
     padding:30px;
+
+    border-radius:20px;
 
     text-align:center;
 
@@ -179,9 +153,9 @@ header h1{
 
     position:fixed;
 
-    bottom:0;
-
     left:0;
+
+    bottom:0;
 
     width:100%;
 
@@ -239,7 +213,7 @@ header h1{
 
     }
 
-    .treino{
+    .recorde{
 
         padding:18px;
 
